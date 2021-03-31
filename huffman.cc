@@ -29,8 +29,3 @@ HForest::HForest Huffman::build_forest(){
   huff_forest.add_tree(HTree(HEOF, 1));
   return huff_forest;
 }
-
-HTree::HTree Huffman::make_tree(int symbol){
-  //make a forest based on the current frequency
-
-}
