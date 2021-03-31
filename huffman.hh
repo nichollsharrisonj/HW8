@@ -9,6 +9,7 @@
 #include <vector>
 
 #include "htree.hh"
+#include "hforest.hh"
 
 class Huffman {
  public:
@@ -34,4 +35,11 @@ class Huffman {
   // a character symbol or HEOF.
   // Finally, updates the frequency table with this additional symbol.
   int decode(bool bit);
+private:
+  HTree huffTree;
+  std::vector<int> freq_table(257,0);     //vector[symbol] is the frequency for symbol
+
+  HForest::HTree build_forest();    //this function will build an HForest of leaves from a frequency_table
+
+  HTree::HTree make_tree(int symbol);      //makes a huffman tree from a forest, frequency table and the next symbol
 };
