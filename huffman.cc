@@ -31,7 +31,7 @@ Huffman::bits_t Huffman::convert_path(path_t path){
     path.pop_front();
   }
   return out;
-/<H
+/*
   bits_t out(path.length(),0);  // make a vector of 1s and 0s initialized to 0
   for (int i = 0, i < path.length(), i++){
     if (dir == HTree::Direction::RIGHT){
