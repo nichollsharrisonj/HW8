@@ -1,4 +1,6 @@
-include "huffman.hh"
+#include "huffman.hh"
+#include "hforest.hh"
+#include "htree.hh"
 
 
 Huffman::Huffman(){
