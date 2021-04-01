@@ -44,13 +44,13 @@ HTree::tree_ptr_t Huffman::make_tree() {
   HForest huff_forest = build_forest();
   while (huff_forest.get_size() > 1){
     if ((huff_forest.get_index(0))->get_value() < (huff_forest.get_index(1))->get_value()) {
-      tree_ptr_t lowest = huff_forest.get_index(0);
-      tree_ptr_t secondLowest = huff_forest.get_index(1);
-      int lowestIndex = 0;
-      int secondLowestIndex = 1;
+      HTree::tree_ptr_t lowest = huff_forest.get_index(0);
+      HTree::tree_ptr_t secondLowest = huff_forest.get_index(1);
+      HTree::int lowestIndex = 0;
+      HTree::int secondLowestIndex = 1;
     } else {
-      tree_ptr_t lowest = huff_forest.get_index(1);
-      tree_ptr_t secondLowest = huff_forest.get_index(0);
+      HTree::tree_ptr_t lowest = huff_forest.get_index(1);
+      HTree::tree_ptr_t secondLowest = huff_forest.get_index(0);
       int lowestIndex = 1;
       int secondLowestIndex = 0;
     }

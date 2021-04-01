@@ -42,7 +42,7 @@ private:
 
   HForest build_forest();    //this function will build an HForest of leaves from a frequency_table
 
-  HTree make_tree();      //makes a huffman tree for the current frequency table
+  HTree::tree_ptr_t make_tree();      //makes a huffman tree for the current frequency table
 
   bits_t convert_path(path_t path);     //since we need to convert strings from path_t to bits_t in encode and decode, seperating it means we only write it once
 };
