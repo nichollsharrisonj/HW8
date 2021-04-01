@@ -3,8 +3,9 @@
 #include "htree.hh"
 
 
-Huffman::Huffman(){
+Huffman::Huffman()
   : freq_table(257, 0)
+  {
 }
 
 Huffman::~Huffman(){
@@ -31,14 +32,15 @@ HForest Huffman::build_forest(){
   //Each leaf has key = symbol (ie character), value = frequency
     //get frequency from current frequency table of the object
   //return forest
-  Hforest huff_forest;   //iterate through frequency table vector?
+  HForest huff_forest;   //iterate through frequency table vector?
   for (int i = 0; i < 256; i++){
     huff_forest.add_tree(std::make_shared<HTree>(i,freq_table[i]));
   }
-  huff_forest.add_tree(make_shared<HTree>(HEOF, 1));
+  huff_forest.add_tree(std::make_shared<HTree>(HEOF, 1));
   return huff_forest;
+}
 
-HTree::tree_ptr_t make_tree(){
+HTree::tree_ptr_t Huffman::make_tree() {
   HForest huff_forest = build_forest();
   while (huff_forest.get_size() > 1){
     if ((huff_forest.get_index(0))->get_value() < (huff_forest.get_index(1))->get_value()) {
