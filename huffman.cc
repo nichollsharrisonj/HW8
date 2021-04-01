@@ -4,7 +4,7 @@
 
 
 Huffman::Huffman(){
-
+  : freq_table(257, 0)
 }
 
 Huffman::~Huffman(){
@@ -12,8 +12,14 @@ Huffman::~Huffman(){
 }
 
 Huffman::bits_t Huffman::encode(int symbol){
-*
-  freq_table[symbol]++;size 0;0=size;<H
+  //make a forest, then make the tree
+  //tree.path_to(symbol) convert to bits_t
+  //update freq table
+  HTree huff_tree = make_tree();
+  HTree::path_t path = *huff_tree.path_to(symbol);
+  freq_table[symbol]++;
+
+  return convert_path(path);
 }
 
 int Huffman::decode(bool bit){
