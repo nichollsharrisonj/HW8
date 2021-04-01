@@ -1,7 +1,9 @@
-include "huffman.hh"
+#include "huffman.hh"
 
 
-Huffman::Huffman(){
+Huffman::Huffman()
+: freq_table(257,0)
+{
 
 }
 

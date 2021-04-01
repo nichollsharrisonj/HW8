@@ -38,11 +38,11 @@ class Huffman {
   int decode(bool bit);
 private:
   HTree huffTree;
-  std::vector<int> freq_table(257,0);     //vector[symbol] is the frequency for symbol
+  std::vector<int> freq_table;     //vector[symbol] is the frequency for symbol
 
-  HForest::HTree build_forest();    //this function will build an HForest of leaves from a frequency_table
+  HForest build_forest();    //this function will build an HForest of leaves from a frequency_table
 
-  HTree:HTree make_tree();      //makes a huffman tree for the current frequency table
+  HTree make_tree();      //makes a huffman tree for the current frequency table
 
   bits_t convert_path(path_t path);     //since we need to convert strings from path_t to bits_t in encode and decode, seperating it means we only write it once
 };
