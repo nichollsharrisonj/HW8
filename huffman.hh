@@ -40,4 +40,6 @@ private:
   std::vector<int> freq_table(257,0);     //vector[symbol] is the frequency for symbol
 
   HForest::HTree build_forest();    //this function will build an HForest of leaves from a frequency_table
+
+  HTree:HTree make_tree();      //makes a huffman tree for the current frequency table
 };
