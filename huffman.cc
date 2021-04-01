@@ -46,8 +46,8 @@ HTree::tree_ptr_t Huffman::make_tree() {
     if ((huff_forest.get_index(0))->get_value() < (huff_forest.get_index(1))->get_value()) {
       HTree::tree_ptr_t lowest = huff_forest.get_index(0);
       HTree::tree_ptr_t secondLowest = huff_forest.get_index(1);
-      HTree::int lowestIndex = 0;
-      HTree::int secondLowestIndex = 1;
+      int lowestIndex = 0;
+      int secondLowestIndex = 1;
     } else {
       HTree::tree_ptr_t lowest = huff_forest.get_index(1);
       HTree::tree_ptr_t secondLowest = huff_forest.get_index(0);
@@ -67,7 +67,7 @@ HTree::tree_ptr_t Huffman::make_tree() {
         }
         }
       }
-      tree_ptr_t newTree = make_shared(-1, lowest->get_value() + secondLowest->get_value(), secondLowest, lowest);
+      HTree::tree_ptr_t newTree = make_shared(-1, lowest->get_value() + secondLowest->get_value(), secondLowest, lowest);
       huff_tree.pop_by_index(lowestIndex);
       huff_tree.pop_by_index(secondLowestIndex);
       huff_tree.add_tree(newTree);
