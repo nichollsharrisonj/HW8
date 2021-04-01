@@ -21,7 +21,15 @@ Huffman::bits_t Huffman::encode(int symbol){
 }
 
 Huffman::bits_t Huffman::convert_path(path_t path){
-
+  bits_t out(path.length(), 0);
+  for i = 0, i < path.length(), i++){
+    if (path.front() == Direction::LEFT){
+      out[i] = 1;
+    }
+    path.pop_front();
+  }
+  return out;
+/*
   bits_t out(path.length(),0);  // make a vector of 1s and 0s initialized to 0
   for (int i = 0, i < path.length(), i++){
     if (dir == HTree::Direction::RIGHT){
@@ -31,6 +39,7 @@ Huffman::bits_t Huffman::convert_path(path_t path){
   }
 
   return out;
+  */
 }
 
 int Huffman::decode(bool bit){
