@@ -45,3 +45,7 @@ int HForest::get_size(){
 int HForest::get_index(int index){
   return trees_[index];
 }
+
+void HForest::pop_by_index(int index){
+  trees_.erase(trees_.begin() + index);
+}
