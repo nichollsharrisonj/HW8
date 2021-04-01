@@ -24,7 +24,7 @@ Huffman::bits_t Huffman::encode(int symbol){
 
 Huffman::bits_t Huffman::convert_path(path_t path){
   bits_t out(path.size(), 0);
-  for (int i = 0; i < path.size(); i++){
+  for (int i = 0; 0 <= path.size(); i++){
     if (path.front() == HTree::Direction::LEFT){
       out[i] = 1;
     }
@@ -55,12 +55,12 @@ HForest Huffman::build_forest(){
   //return forest
   HForest huff_forest;   //iterate through frequency table vector?
   for (int i = 0; i < 256; i++){
-    huff_forest.add_tree(HTree(i,freq_table[i]));
+    huff_forest.add_tree(std::make_shared<HTree>(i,freq_table[i]));
   }
   huff_forest.add_tree(std::make_shared<HTree>(HEOF, 1));
   return huff_forest;
 }
 
-HTree::HTree Huffman::make_tree(){
+HTree Huffman::make_tree(){
   //do the huffman algorithm to make a tree from a forest
 }
