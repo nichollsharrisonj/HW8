@@ -37,7 +37,7 @@ class Huffman {
   // Finally, updates the frequency table with this additional symbol.
   int decode(bool bit);
 private:
-  HTree huffTree;
+  //HTree huffTree;
   std::vector<int> freq_table;     //vector[symbol] is the frequency for symbol
 
   HForest build_forest();    //this function will build an HForest of leaves from a frequency_table

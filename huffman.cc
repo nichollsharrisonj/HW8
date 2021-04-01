@@ -16,22 +16,22 @@ Huffman::bits_t Huffman::encode(int symbol){
   //tree.path_to(symbol) convert to bits_t
   //update freq table
   HTree huff_tree = make_tree();
-
-  HTree::path_t path = huff_tree.path_to(symbol);
+  HTree::path_t path = *huff_tree.path_to(symbol);
+  freq_table[symbol]++;
 
   return convert_path(path);
 }
 
 Huffman::bits_t Huffman::convert_path(path_t path){
-  bits_t out(path.length(), 0);
-  for i = 0, i < path.length(), i++){
-    if (path.front() == Direction::LEFT){
+  bits_t out(path.size(), 0);
+  for (int i = 0; i < path.size(); i++){
+    if (path.front() == HTree::Direction::LEFT){
       out[i] = 1;
     }
     path.pop_front();
   }
   return out;
-/*
+/<H
   bits_t out(path.length(),0);  // make a vector of 1s and 0s initialized to 0
   for (int i = 0, i < path.length(), i++){
     if (dir == HTree::Direction::RIGHT){
@@ -48,16 +48,16 @@ int Huffman::decode(bool bit){
 
 }
 
-HForest::HForest Huffman::build_forest(){
+HForest Huffman::build_forest(){
   //intiialize a forest of leaves (trees with one elt)
   //Each leaf has key = symbol (ie character), value = frequency
     //get frequency from current frequency table of the object
   //return forest
-  Hforest huff_forest;   //iterate through frequency table vector?
-  for (int i = 0, i < 256, i++){
+  HForest huff_forest;   //iterate through frequency table vector?
+  for (int i = 0; i < 256; i++){
     huff_forest.add_tree(HTree(i,freq_table[i]));
   }
-  huff_forest.add_tree(HTree(HEOF, 1));
+  huff_forest.add_tree(std::make_shared<HTree>(HEOF, 1));
   return huff_forest;
 }
 
