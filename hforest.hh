@@ -29,7 +29,7 @@ class HForest {
 
   int get_size();
 
-  int get_index(int index);
+  HTree::tree_ptr_t get_index(int index);
 
  private:
   std::vector<tree_t> trees_;

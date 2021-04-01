@@ -42,7 +42,7 @@ int HForest::get_size(){
   return trees_.size();
 }
 
-int HForest::get_index(int index){
+HTree::tree_ptr_t HForest::get_index(int index){
   return trees_[index];
 }
 
