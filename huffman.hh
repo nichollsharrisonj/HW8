@@ -18,7 +18,7 @@ class Huffman {
   static const int HEOF = ALPHABET_SIZE - 1;  // Special symbol to denote end of file
 
   using bits_t = std::vector<bool>;
-  using path_t = HTree:path_t;
+  using path_t = HTree::path_t;
 
   Huffman();
   ~Huffman();
