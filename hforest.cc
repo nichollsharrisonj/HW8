@@ -38,3 +38,10 @@ HForest::pop_top()
   return ret;
 }
 
+int HForest::get_size(){
+  return trees_.size();
+}
+
+int HForest::get_index(int index){
+  return trees_[index];
+}

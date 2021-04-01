@@ -63,4 +63,28 @@ HForest Huffman::build_forest(){
 
 HTree Huffman::make_tree(){
   //do the huffman algorithm to make a tree from a forest
+  HForest huff_forest = build_forest();
+  while (huff_forest.get_size() > 1){//size of forest > 1
+    tree_ptr_t lowest = -1;
+    tree_ptr_t secondLowest = -1;
+    for (int i = 0; i < huff_forest.get_size(); i++){
+      if (secondLowest < 0 || (huff_forest.get_index(i))->get_value() < secondLowest){
+        if (lowest < 0 || (huff_forest.get_index(i))->get_value() < lowest){
+          secondLowest = lowest;
+          lowest = huff_forest.get_index(i))->get_value();
+        else {
+          secondLowest = huff_forest.get_index(i))->get_value();
+        }
+        }
+      }
+    }
+  }
+}
+
+
+    //things to add to hforest:
+      //add get_index returns forest_vect[i]
+      //size function get_size()
+      //way to iterate through the forest
+
 }
