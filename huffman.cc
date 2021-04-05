@@ -37,11 +37,18 @@ Huffman::bits_t Huffman::convert_path(path_t path){
 
 int Huffman::decode(bool bit){
   HTree::tree_ptr_t huff_tree =  Huffman::make_tree();
-  if (bit){
+  HTree::tree_ptr_t currnode = huff_tree;  //start the current node at the beginning of the tree
+  if (bit){   //Expand currentpath list based on given bit
     currentpath.push_back(HTree::Direction::RIGHT);
   }
   else {
     currentpath.push_back(HTree::Direction::LEFT);
+  }
+  for(int i=0; i < static_cast<int>(currentpath.size()); i++){
+    currnode = currnode->get_child(currentpath[i]);
+    }
+  if (currnode->get_value() >= 0){//We have reached a leaf
+
   }
 
   //take freq_table
@@ -94,7 +101,7 @@ HTree::tree_ptr_t Huffman::make_tree() {
         }
         }
       }
-      HTree::tree_ptr_t newTree = std::make_shared(-1, lowest->get_value() + secondLowest->get_value(), secondLowest, lowest);
+      HTree::tree_ptr_t newTree = std::make_shared<HTree>(-1, lowest->get_value() + secondLowest->get_value(), secondLowest, lowest);
       huff_forest.pop_by_index(lowestIndex);
       huff_forest.pop_by_index(secondLowestIndex);
       huff_forest.add_tree(newTree);
