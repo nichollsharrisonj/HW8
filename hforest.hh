@@ -31,6 +31,8 @@ class HForest {
 
   HTree::tree_ptr_t get_index(int index);
 
+  void pop_by_index(int index);
+
  private:
   std::vector<tree_t> trees_;
 };

@@ -16,15 +16,33 @@ Huffman::bits_t Huffman::encode(int symbol){
   //make a forest, then make the tree
   //tree.path_to(symbol) convert to bits_t
   //update freq table
-  HTree huff_tree = make_tree();
-  HTree::path_t path = *huff_tree.path_to(symbol);
+  HTree::tree_ptr_t huff_tree = make_tree();
+  HTree::possible_path_t path = huff_tree->path_to(symbol);
   freq_table[symbol]++;
 
-  return convert_path(path);
+  return convert_path(*path);
 }
 
-int Huffman::decode(bool bit){
+Huffman::bits_t Huffman::convert_path(path_t path){
+  bits_t out(path.size(), 0);
+  for (int i = 0; 0 < path.size(); i++){
+    if (path.front() == HTree::Direction::LEFT){
+      out[i] = 1;
+    }
+    path.pop_front();
+  }
+  return out;
+}
 
+
+int Huffman::decode(bool bit){
+  HTree::tree_ptr_t huff_tree =  Huffman::make_tree();
+  huffman::currentpath.push_back(bit);
+  for ()
+  //take freq_table
+  //Build a complete huffman tree + EOF
+  //take the inputted bit, and traverse the tree
+  // do this until reaching a leaf, at which point output the character
 }
 
 HForest Huffman::build_forest(){
@@ -42,35 +60,39 @@ HForest Huffman::build_forest(){
 
 HTree::tree_ptr_t Huffman::make_tree() {
   HForest huff_forest = build_forest();
+  HTree::tree_ptr_t lowest;
+  HTree::tree_ptr_t secondLowest;
+  int lowestIndex;
+  int secondLowestIndex;
   while (huff_forest.get_size() > 1){
     if ((huff_forest.get_index(0))->get_value() < (huff_forest.get_index(1))->get_value()) {
-      HTree::tree_ptr_t lowest = huff_forest.get_index(0);
-      HTree::tree_ptr_t secondLowest = huff_forest.get_index(1);
-      int lowestIndex = 0;
-      int secondLowestIndex = 1;
+      lowest = huff_forest.get_index(0);
+      secondLowest = huff_forest.get_index(1);
+      lowestIndex = 0;
+      secondLowestIndex = 1;
     } else {
-      HTree::tree_ptr_t lowest = huff_forest.get_index(1);
-      HTree::tree_ptr_t secondLowest = huff_forest.get_index(0);
-      int lowestIndex = 1;
-      int secondLowestIndex = 0;
+      lowest = huff_forest.get_index(1);
+      secondLowest = huff_forest.get_index(0);
+      lowestIndex = 1;
+      secondLowestIndex = 0;
     }
     for (int i = 2; i < huff_forest.get_size(); i++){
       if ((huff_forest.get_index(i))->get_value() < secondLowest->get_value()){
         if ((huff_forest.get_index(i))->get_value() < lowest->get_value()){
           secondLowest = lowest;
           secondLowestIndex = lowestIndex;
-          lowest = huff_forest.get_index(i));
+          lowest = huff_forest.get_index(i);
           lowestIndex = i;
         } else {
-          secondLowest = huff_forest.get_index(i));
+          secondLowest = huff_forest.get_index(i);
           secondLowestIndex = i;
         }
         }
       }
-      HTree::tree_ptr_t newTree = make_shared(-1, lowest->get_value() + secondLowest->get_value(), secondLowest, lowest);
-      huff_tree.pop_by_index(lowestIndex);
-      huff_tree.pop_by_index(secondLowestIndex);
-      huff_tree.add_tree(newTree);
+      HTree::tree_ptr_t newTree = std::make_shared(-1, lowest->get_value() + secondLowest->get_value(), secondLowest, lowest);
+      huff_forest.pop_by_index(lowestIndex);
+      huff_forest.pop_by_index(secondLowestIndex);
+      huff_forest.add_tree(newTree);
     }
   }
 
@@ -79,5 +101,3 @@ HTree::tree_ptr_t Huffman::make_tree() {
       //size function get_size()
       //way to iterate through the forest
       //function to delete the ith tree in the forest_vect
-
-}
