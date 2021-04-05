@@ -37,8 +37,13 @@ Huffman::bits_t Huffman::convert_path(path_t path){
 
 int Huffman::decode(bool bit){
   HTree::tree_ptr_t huff_tree =  Huffman::make_tree();
-  huffman::currentpath.push_back(bit);
-  for ()
+  if (bit){
+    currentpath.push_back(HTree::Direction::RIGHT);
+  }
+  else {
+    currentpath.push_back(HTree::Direction::LEFT);
+  }
+
   //take freq_table
   //Build a complete huffman tree + EOF
   //take the inputted bit, and traverse the tree
