@@ -27,7 +27,7 @@ decoder: decoder.o  bitio.o huffman.o hforest.o
 	$(CXX) $(CXXFLAGS) $(OPTFLAGS) -c -o $@ $<
 
 clean:
-	rm -rf *.o test_bitio encoder decoder
+	rm -rf *.o test_bitio encoder decoder test_hforst
 
 test: all
 	./test_tree
