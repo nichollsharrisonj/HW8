@@ -1,6 +1,6 @@
 #include "bitio.hh"
 
-BitIO(std::ostream* os, std::istream* is){
+BitIO(std::ostream* os, std::istream* is) {
   if (os) {
     streamOut = os;
     isOut = 1;
@@ -10,7 +10,7 @@ BitIO(std::ostream* os, std::istream* is){
     isOut = 0;
     isIn = 1;
   }
-}
+};
 
 ~BitIO(){
   //check length of stored string
