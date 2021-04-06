@@ -26,7 +26,7 @@ void BitIO::output_bit(bool bit){
   storedString.push_back(bit);
   if (storedString.size() == 8){
     while (storedString.size() > 0){
-      streamOut << /*maybe <<*/ storedString[0];
+      *streamOut << /*maybe <<*/ storedString[0];
       storedString.erase(storedString.begin());
     }
   }
@@ -34,7 +34,7 @@ void BitIO::output_bit(bool bit){
 
 bool BitIO::input_bit(){
   bool input;
-  streamIn>>input;
+  *streamIn>>input;
   return input;
 }
 
