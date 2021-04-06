@@ -106,6 +106,7 @@ HTree::tree_ptr_t Huffman::make_tree() {
       huff_forest.pop_by_index(secondLowestIndex);
       huff_forest.add_tree(newTree);
     }
+    return huff_forest.get_index(0);
   }
 
 
