@@ -1,6 +1,6 @@
 #include "bitio.hh"
 
-BitIO(std::ostream* os, std::istream* is) {
+BitIO::BitIO(std::ostream* os, std::istream* is) {
   if (os) {
     streamOut = os;
     isOut = 1;
@@ -12,7 +12,7 @@ BitIO(std::ostream* os, std::istream* is) {
   }
 };
 
-~BitIO(){
+BitIO::~BitIO(){
   //check length of stored string
     //if length > 0, need to add zeros so it gets to 8 and then print
     //add zeros to the end??
@@ -22,7 +22,7 @@ BitIO(std::ostream* os, std::istream* is) {
   }
 }
 
-void output_bit(bool bit){
+void BitIO::output_bit(bool bit){
   storedString.push_back(bit);
   if (storedString.size() == 8){
     while (storedString.size() > 0){
@@ -32,7 +32,7 @@ void output_bit(bool bit){
   }
 }
 
-bool input_bit(){
+bool BitIO::input_bit(){
   streamIn >> input;
   return input;
 }
