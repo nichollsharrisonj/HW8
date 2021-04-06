@@ -33,7 +33,8 @@ void BitIO::output_bit(bool bit){
 }
 
 bool BitIO::input_bit(){
-  streamIn >> input;
+  bool input;
+  streamIn>>input;
   return input;
 }
 
