@@ -3,6 +3,7 @@
  * Before reading any bits, ensure your input stream still has valid inputs.
  */
 #include <iostream>
+#include <vector>
 
 class BitIO {
  public:
