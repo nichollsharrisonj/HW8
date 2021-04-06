@@ -47,8 +47,12 @@ int Huffman::decode(bool bit){
   for(int i=0; i < static_cast<int>(currentpath.size()); i++){
     currnode = currnode->get_child(currentpath[i]);
     }
-  if (currnode->get_value() >= 0){//We have reached a leaf
-
+  if (currnode->get_value() >= 0) {//We have reached a leaf
+    currentpath.erase(currentpath.begin(), currentpath.end());
+    return currnode->get_value();
+  }
+  else {
+    return -1; //Have not found the character yet
   }
 
   //take freq_table
