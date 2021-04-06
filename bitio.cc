@@ -33,6 +33,7 @@ void BitIO::output_bit(bool bit){
 }
 
 bool BitIO::input_bit(){
+  //ALWAYS ONLY READING THE MOST RECENT INPUTTED BIT, SEE TEST_BITIO.cc
   bool input;
   *streamIn>>input;
   return input;
