@@ -49,6 +49,7 @@ int Huffman::decode(bool bit){
     }
   if (currnode->get_value() >= 0) {//We have reached a leaf
     currentpath.erase(currentpath.begin(), currentpath.end());
+		freq_table[currnode->get_key()]++;
     return currnode->get_value();
   }
   else {
