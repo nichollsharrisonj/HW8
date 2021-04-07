@@ -11,7 +11,7 @@ test_bitio: bitio.o test_bitio.o
 test_tree: test_tree.o tree.o
 	$(CXX) $(LDFLAGS) -o $@ $^
 
-test_huffman: test_huffman.o huffman.o hforest.o
+test_huffman: test_huffman.o huffman.o hforest.o htree.o
 	$(CXX) $(LDFLAGS) -o $@ $^
 
 test_hforest: test_hforest.o hforest.o
