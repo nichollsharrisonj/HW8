@@ -71,7 +71,8 @@ HForest Huffman::build_forest(){
   for (int i = 0; i < ALPHABET_SIZE; i++){
     huff_forest.add_tree(std::make_shared<HTree>(i,freq_table[i]));
   }
-  huff_forest.add_tree(std::make_shared<HTree>(ALPHABET_SIZE, 1));
+  int size = ALPHABET_SIZE;
+  huff_forest.add_tree(std::make_shared<HTree>(size, 1));
   return huff_forest;
 }
 
