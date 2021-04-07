@@ -8,7 +8,7 @@ all:  test_bitio test_hforest test_huffman test_tree encoder decoder
 test_bitio: bitio.o test_bitio.o
 	$(CXX) $(LDFLAGS) -o $@ $^
 
-test_tree: test_tree.o tree.o
+test_tree: test_htree.o htree.o
 	$(CXX) $(LDFLAGS) -o $@ $^
 
 test_huffman: test_huffman.o huffman.o hforest.o htree.o
@@ -20,14 +20,14 @@ test_hforest: test_hforest.o hforest.o
 encoder: encoder.o bitio.o huffman.o hforest.o
 	$(CXX) $(LDFLAGS) -o $@ $^
 
-decoder: decoder.o  bitio.o huffman.o hforest.o
+decoder: decoder.o  bitio.o huffman.o hforest.o htree.o
 	$(CXX) $(LDFLAGS) -o $@ $^
 
 %.o: %.cc %.hh
 	$(CXX) $(CXXFLAGS) $(OPTFLAGS) -c -o $@ $<
 
 clean:
-	rm -rf *.o test_bitio encoder decoder test_hforest test_huffman
+	rm -rf *.o test_bitio encoder decoder test_hforest test_huffman test_tree
 
 test: all
 	./test_tree
