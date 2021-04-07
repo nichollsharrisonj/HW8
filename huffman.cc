@@ -4,7 +4,7 @@
 
 
 Huffman::Huffman()
-  : freq_table(257, 0)
+  : freq_table(ALPHABET_SIZE, 0)
   {
 }
 
@@ -68,10 +68,10 @@ HForest Huffman::build_forest(){
     //get frequency from current frequency table of the object
   //return forest
   HForest huff_forest;   //iterate through frequency table vector?
-  for (int i = 0; i < 256; i++){
+  for (int i = 0; i < ALPHABET_SIZE; i++){
     huff_forest.add_tree(std::make_shared<HTree>(i,freq_table[i]));
   }
-  huff_forest.add_tree(std::make_shared<HTree>(HEOF, 1));
+  huff_forest.add_tree(std::make_shared<HTree>(ALPHABET_SIZE, 1));
   return huff_forest;
 }
 
