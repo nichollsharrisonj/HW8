@@ -33,4 +33,7 @@ private:
   std::vector<bool> storedString;
   int currentIndex = 0;
 
+
+  bool printIndex(int index);
+
 };

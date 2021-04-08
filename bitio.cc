@@ -26,6 +26,7 @@ void BitIO::output_bit(bool bit){
   currentIndex++;
   if (currentIndex == 7){
     for (int i = 0; i < 8; i++){
+      std::cout << storedString[i];
       *streamOut << /*maybe <<*/ storedString[i];
     }
     storedString.assign(storedString.size(), 0);
@@ -38,6 +39,10 @@ bool BitIO::input_bit(){
   bool input;
   *streamIn>>input;
   return input;
+}
+
+bool BitIO::printIndex(int index){
+  return storedString[index];
 }
 
 

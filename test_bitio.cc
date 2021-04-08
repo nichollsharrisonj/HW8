@@ -141,12 +141,21 @@ test_100_bits()
 //////////////////////////////////////////////////////////////////////////////
 int
 main() {
-  test_1_bit();
-  test_4_bits();
-  test_8_bits();
-  test_9_bits();
-  test_16_bits();
-  test_100_bits();
+
+  std::stringstream bits;
+  {
+    BitIO bitio(&bits, nullptr);
+    bitio.output_bit(1);
+  }
+  bool toPrint = bitio.printIndex(0);
+  std::cout<<toPrint;
+
+  // test_1_bit();
+  // test_4_bits();
+  // test_8_bits();
+  // test_9_bits();
+  // test_16_bits();
+  // test_100_bits();
 
   return 0;
 }
