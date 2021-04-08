@@ -23,6 +23,9 @@ class BitIO {
 
   // Read a single bit (or trailing zero)
   bool input_bit();
+
+  bool printIndex(int index);
+
 private:
   std::ostream* streamOut;
   std::istream* streamIn;
@@ -32,8 +35,5 @@ private:
 
   std::vector<bool> storedString;
   int currentIndex = 0;
-
-
-  bool printIndex(int index);
 
 };

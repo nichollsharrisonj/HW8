@@ -143,10 +143,9 @@ int
 main() {
 
   std::stringstream bits;
-  {
-    BitIO bitio(&bits, nullptr);
-    bitio.output_bit(1);
-  }
+
+  BitIO bitio(&bits, nullptr);
+  bitio.output_bit(1);
   bool toPrint = bitio.printIndex(0);
   std::cout<<toPrint;
 
