@@ -18,19 +18,29 @@ BitIO::~BitIO(){
     //if length > 0, need to add zeros so it gets to 8 and then print
     //add zeros to the end??
   //NEED TO DO MORE
+  while (currentIndex < 7){
+    *streamOut<<"0";
+    currentIndex++;
+  }
 }
 
 void BitIO::output_bit(bool bit){
-  storedString.push_back(bit);
-  storedString[currentIndex] = bit;
+  //storedString.push_back(bit);
+  //storedString[currentIndex] = bit;
   currentIndex++;
+  /*
   if (currentIndex == 7){
     for (int i = 0; i < 8; i++){
-      std::cout << storedString[i];
-      *streamOut << /*maybe <<*/ storedString[i];
+      // std::cout << storedString[i];
+      *streamOut << storedString[i];
     }
-    storedString.assign(storedString.size(), 0);
+  */
+  *streamOut<<bit;
+  if (currentIndex == 7){
     currentIndex = 0;
+  }
+  //storedString.assign(storedString.size(), 0);
+  //currentIndex = 0;
   }
 }
 
