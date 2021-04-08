@@ -1,13 +1,13 @@
 #include "bitio.hh"
 
 BitIO::BitIO(std::ostream* os, std::istream* is) {
+  isOut = 0;
+  isIn = 0;
   if (os) {
     streamOut = os;
     isOut = 1;
-    isIn = 0;
   } else if (is) {
     streamIn = is;
-    isOut = 0;
     isIn = 1;
   }
 };
@@ -24,11 +24,14 @@ BitIO::~BitIO(){
 
 void BitIO::output_bit(bool bit){
   storedString.push_back(bit);
-  if (storedString.size() == 8){
-    while (storedString.size() > 0){
-      *streamOut << /*maybe <<*/ storedString[0];
-      storedString.erase(storedString.begin());
+  storedString[currentIndex] = bit;
+  currentIndex++;
+  if (currentIndex == 7){
+    for (int i = 0, i < 8, i++){
+      *streamOut << /*maybe <<*/ storedString[i];
     }
+    storedString.assign(storedString.size(), 0);
+    currentIndex = 0
   }
 }
 

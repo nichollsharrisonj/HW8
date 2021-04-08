@@ -30,5 +30,7 @@ private:
   bool isOut;
   bool isIn;
 
-  std::vector<bool> storedString;
+  std::vector<bool> storedString(8, 0);
+  int currentIndex = 0;
+
 };
