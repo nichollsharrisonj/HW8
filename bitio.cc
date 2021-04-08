@@ -3,6 +3,7 @@
 BitIO::BitIO(std::ostream* os, std::istream* is) {
   isOut = 0;
   isIn = 0;
+  storedString = {0, 0, 0, 0, 0, 0, 0, 0};
   if (os) {
     streamOut = os;
     isOut = 1;

@@ -11,7 +11,7 @@ class BitIO {
   BitIO(std::ostream* os, std::istream* is);
 
   // Flushes out any remaining output bits and trailing zeros, if any:
-  ~BitIO();
+  ~Bi
 
   BitIO(const BitIO&) = default;
   BitIO(BitIO&&) = default;
@@ -30,7 +30,7 @@ private:
   bool isOut;
   bool isIn;
 
-  std::vector<bool> storedString(8, 0);
+  std::vector<bool> storedString;
   int currentIndex = 0;
 
 };
