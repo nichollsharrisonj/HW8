@@ -19,7 +19,7 @@ BitIO::~BitIO(){
     //add zeros to the end??
   //NEED TO DO MORE
   while (currentIndex < 7){
-    *streamOut<<"0";
+    *streamOut << 0;
     currentIndex++;
   }
 }

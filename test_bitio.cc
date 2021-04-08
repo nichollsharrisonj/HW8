@@ -154,10 +154,13 @@ main() {
   bitio.output_bit(0);
   bitio.output_bit(0);
 
+
+
+
   BitIO bitio2(nullptr, &bits);
-  bool input;
-  bits>>input;
-  std::cout<<input;
+
+  // bool input;
+  // std::cout<<input;
   assert(bitio2.input_bit() == false);
 
   // bool toPrint = bitio.printIndex(0);
