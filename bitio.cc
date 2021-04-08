@@ -18,9 +18,6 @@ BitIO::~BitIO(){
     //if length > 0, need to add zeros so it gets to 8 and then print
     //add zeros to the end??
   //NEED TO DO MORE
-  while (storedString.size() > 0){ //this adds zeros until output bit prints it, then leaves. if already empty, don't do anything
-    output_bit(0);
-  }
 }
 
 void BitIO::output_bit(bool bit){
