@@ -42,7 +42,7 @@ void BitIO::output_bit(bool bit){
   //storedString.assign(storedString.size(), 0);
   //currentIndex = 0;
   }
-}
+
 
 bool BitIO::input_bit(){
   //ALWAYS ONLY READING THE MOST RECENT INPUTTED BIT, SEE TEST_BITIO.cc
