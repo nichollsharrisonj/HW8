@@ -27,7 +27,7 @@ void BitIO::output_bit(bool bit){
   storedString[currentIndex] = bit;
   currentIndex++;
   if (currentIndex == 7){
-    for (int i = 0, i < 8, i++){
+    for (int i = 0; i < 8; i++){
       *streamOut << /*maybe <<*/ storedString[i];
     }
     storedString.assign(storedString.size(), 0);
