@@ -32,7 +32,7 @@ void BitIO::output_bit(bool bit){
       *streamOut << /*maybe <<*/ storedString[i];
     }
     storedString.assign(storedString.size(), 0);
-    currentIndex = 0
+    currentIndex = 0;
   }
 }
 

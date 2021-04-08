@@ -11,7 +11,7 @@ class BitIO {
   BitIO(std::ostream* os, std::istream* is);
 
   // Flushes out any remaining output bits and trailing zeros, if any:
-  ~Bi
+  ~BitIO();
 
   BitIO(const BitIO&) = default;
   BitIO(BitIO&&) = default;
