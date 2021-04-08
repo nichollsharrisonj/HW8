@@ -18,10 +18,10 @@ BitIO::~BitIO(){
     //if length > 0, need to add zeros so it gets to 8 and then print
     //add zeros to the end??
   //NEED TO DO MORE
-  while (currentIndex < 7){
-    *streamOut << 0;
-    currentIndex++;
-  }
+  // while (currentIndex < 7){
+  //   *streamOut << 0;
+  //   currentIndex++;
+  // }
 }
 
 void BitIO::output_bit(bool bit){
@@ -36,6 +36,7 @@ void BitIO::output_bit(bool bit){
     }
   */
   *streamOut<<bit;
+  // std::ostream.get(bit)
   if (currentIndex == 7){
     currentIndex = 0;
   }
@@ -48,6 +49,7 @@ bool BitIO::input_bit(){
   //ALWAYS ONLY READING THE MOST RECENT INPUTTED BIT, SEE TEST_BITIO.cc
   bool input;
   *streamIn>>input;
+  // std::istream.put(input)
   return input;
 }
 

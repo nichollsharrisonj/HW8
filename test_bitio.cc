@@ -143,26 +143,35 @@ int
 main() {
 
   std::stringstream bits;
-
+  {
   BitIO bitio(&bits, nullptr);
   bitio.output_bit(0);
   bitio.output_bit(0);
   bitio.output_bit(0);
   bitio.output_bit(0);
+  bitio.output_bit(1);
   bitio.output_bit(0);
   bitio.output_bit(0);
   bitio.output_bit(0);
-  bitio.output_bit(0);
+}
 
 
 
-
+  {
   BitIO bitio2(nullptr, &bits);
 
-  // bool input;
-  // std::cout<<input;
-  assert(bitio2.input_bit() == false);
+  std::cout << bitio2.input_bit();
+  std::cout << bitio2.input_bit();
+  std::cout << bitio2.input_bit();
+  std::cout << bitio2.input_bit();
+  std::cout << bitio2.input_bit();
+  std::cout << bitio2.input_bit();
+  std::cout << bitio2.input_bit();
 
+  // input = bitio2.input_bit();
+  // std::cout<<input;
+  // assert(bitio2.input_bit() == false);
+  }
   // bool toPrint = bitio.printIndex(0);
   // std::cout<<toPrint<<"\n";
   //
