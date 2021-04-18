@@ -21,7 +21,7 @@ class Huffman {
   using path_t = HTree::path_t;
 
   Huffman();
-  ~Huffman();
+  ~Huffman() = default;
   Huffman(const Huffman&) = delete;
   Huffman(Huffman&&) = delete;
   Huffman& operator=(const Huffman&) = delete;
@@ -46,4 +46,6 @@ private:
   HTree::tree_ptr_t make_tree();      //makes a huffman tree for the current frequency table
 
   bits_t convert_path(path_t path);     //since we need to convert strings from path_t to bits_t in encode and decode, seperating it means we only write it once
+
+  HTree::tree_ptr_t currentTree;
 };
