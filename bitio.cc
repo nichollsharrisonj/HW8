@@ -35,6 +35,7 @@ void BitIO::output_bit(bool bit){
       *streamOut << storedString[i];
     }
   */
+  
   *streamOut<<bit;
   // std::ostream.get(bit)
   if (currentIndex == 7){
