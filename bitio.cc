@@ -1,16 +1,8 @@
 #include "bitio.hh"
 
-BitIO::BitIO(std::ostream* os, std::istream* is) {
-  isOut = 0;
-  isIn = 0;
-  storedString = {0, 0, 0, 0, 0, 0, 0, 0};
-  if (os) {
-    streamOut = os;
-    isOut = 1;
-  } else if (is) {
-    streamIn = is;
-    isIn = 1;
-  }
+BitIO::BitIO(std::ostream* os, std::istream* is)
+  : streamOut(os), streamIn(is), currentIndex(0)
+{
 };
 
 BitIO::~BitIO(){
@@ -22,40 +14,38 @@ BitIO::~BitIO(){
   //   *streamOut << 0;
   //   currentIndex++;
   // }
+
+  while (streamOut && currentIndex){
+    output_bit(0);
+  }
 }
 
 void BitIO::output_bit(bool bit){
-  //storedString.push_back(bit);
-  //storedString[currentIndex] = bit;
+  assert(streamOut);
+  storedString[currentIndex] = bit;
   currentIndex++;
-  /*
-  if (currentIndex == 7){
-    for (int i = 0; i < 8; i++){
-      // std::cout << storedString[i];
-      *streamOut << storedString[i];
-    }
-  */
-  
-  *streamOut<<bit;
-  // std::ostream.get(bit)
-  if (currentIndex == 7){
+  if (currentIndex==8){
     currentIndex = 0;
+    unsigned char charprint = static_cast<unsigned char>( storedString.to_ulong() );
+    streamOut->put(charprint);
+    storedString.reset();
   }
-  //storedString.assign(storedString.size(), 0);
-  //currentIndex = 0;
   }
 
 
 bool BitIO::input_bit(){
-  //ALWAYS ONLY READING THE MOST RECENT INPUTTED BIT, SEE TEST_BITIO.cc
-  bool input;
-  *streamIn>>input;
-  // std::istream.put(input)
-  return input;
-}
-
-bool BitIO::printIndex(int index){
-  return storedString[index];
+  assert(streamIn);
+  if (currentIndex == 0){
+    unsigned int byteToRead = static_cast<unsigned long>(streamIn->get());
+    storedString = byteToRead;
+  }
+  bool bit = storedString.test(currentIndex);
+  currentIndex++;
+  if (currentIndex == 8){
+    currentIndex = 0;
+    storedString.reset();
+  }
+  return bit;
 }
 
 

@@ -30,10 +30,7 @@ private:
   std::ostream* streamOut;
   std::istream* streamIn;
 
-  bool isOut;
-  bool isIn;
-
-  std::vector<bool> storedString;
+  std::bitset<8> storedString;
   int currentIndex = 0;
 
 };
