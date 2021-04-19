@@ -25,12 +25,14 @@ int main(int argc, char **argv){//take in number of command line arguments, and 
 	    symbol = -1;
 	   }
 	 }
-	Infile.close(); //close infile
+	
 	
 	filename.append(".plaintext"); //change file name before opening outfile
 
 	std::ofstream Outfile(filename); //open outfile
 
+
+	Infile.close(); //close infile
 	Outfile.close();
 
 
