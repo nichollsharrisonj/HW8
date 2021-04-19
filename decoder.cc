@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include "huffman.hh"
+#include "bitio.hh"
 
 int main(int argc, char **argv){//take in number of command line arguments, and arguments
 	if (argc != 2){
@@ -20,10 +22,12 @@ int main(int argc, char **argv){//take in number of command line arguments, and 
 	    symbol = -1;
 	   }
 	 }
-	Infile.close();
+	Infile.close(); //close infile
 	
-	filename.append(".plaintext");
-	std::ofstream Outfile(filename);
+	filename.append(".plaintext"); //change file name before opening outfile
+
+	std::ofstream Outfile(filename); //open outfile
+
 	Outfile.close();
 
 
