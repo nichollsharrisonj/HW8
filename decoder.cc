@@ -12,10 +12,12 @@ int main(int argc, char *argv[]){//take in number of command line arguments, and
 	  }
 	  if (symbol == Huffman::HEOF) {
 	    break;
-	  } else {
-	    out.put(symbol);
+	  } 
+	  else {
+	    File.put(symbol);
 	    symbol = -1;
 	   }
 	 }
+	File.close();
  return 1;
 }
