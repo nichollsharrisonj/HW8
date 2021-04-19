@@ -141,49 +141,60 @@ test_100_bits()
 //////////////////////////////////////////////////////////////////////////////
 int
 main() {
-
-  std::stringstream bits;
-  {
-  BitIO bitio(&bits, nullptr);
-  bitio.output_bit(0);
-  bitio.output_bit(0);
-  bitio.output_bit(0);
-  bitio.output_bit(0);
-  bitio.output_bit(1);
-  bitio.output_bit(0);
-  bitio.output_bit(0);
-  bitio.output_bit(0);
-}
-
-
-
-  {
-  BitIO bitio2(nullptr, &bits);
-
-  std::cout << bitio2.input_bit();
-  std::cout << bitio2.input_bit();
-  std::cout << bitio2.input_bit();
-  std::cout << bitio2.input_bit();
-  std::cout << bitio2.input_bit();
-  std::cout << bitio2.input_bit();
-  std::cout << bitio2.input_bit();
-
-  // input = bitio2.input_bit();
-  // std::cout<<input;
-  // assert(bitio2.input_bit() == false);
-  }
-  // bool toPrint = bitio.printIndex(0);
-  // std::cout<<toPrint<<"\n";
-  //
-  // bool toPrint2 = bitio.printIndex(1);
-  // std::cout<<toPrint2;
-
-  // test_1_bit();
-  // test_4_bits();
-  // test_8_bits();
-  // test_9_bits();
-  // test_16_bits();
-  // test_100_bits();
+  test_1_bit();
+  test_4_bits();
+  test_8_bits();
+  test_9_bits();
+  test_16_bits();
+  test_100_bits();
 
   return 0;
 }
+// int
+// main() {
+
+// //   std::stringstream bits;
+// //   {
+// //   BitIO bitio(&bits, nullptr);
+// //   bitio.output_bit(0);
+// //   bitio.output_bit(0);
+// //   bitio.output_bit(0);
+// //   bitio.output_bit(0);
+// //   bitio.output_bit(1);
+// //   bitio.output_bit(0);
+// //   bitio.output_bit(0);
+// //   bitio.output_bit(0);
+// // }
+
+
+
+// //   {
+// //   BitIO bitio2(nullptr, &bits);
+
+// //   std::cout << bitio2.input_bit();
+// //   std::cout << bitio2.input_bit();
+// //   std::cout << bitio2.input_bit();
+// //   std::cout << bitio2.input_bit();
+// //   std::cout << bitio2.input_bit();
+// //   std::cout << bitio2.input_bit();
+// //   std::cout << bitio2.input_bit();
+
+//   // input = bitio2.input_bit();
+//   // std::cout<<input;
+//   // assert(bitio2.input_bit() == false);
+//   }
+//   // bool toPrint = bitio.printIndex(0);
+//   // std::cout<<toPrint<<"\n";
+//   //
+//   // bool toPrint2 = bitio.printIndex(1);
+//   // std::cout<<toPrint2;
+
+//   test_1_bit();
+//   test_4_bits();
+//   test_8_bits();
+//   test_9_bits();
+//   test_16_bits();
+//   test_100_bits();
+
+//   return 0;
+// }
