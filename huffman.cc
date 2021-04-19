@@ -4,7 +4,7 @@
 
 
 Huffman::Huffman()
-  : freq_table(ALPHABET_SIZE, 0)
+  : freq_table(ALPHABET_SIZE, 0), currentTree(nullptr)
   {
 }
 
@@ -39,7 +39,7 @@ Huffman::bits_t Huffman::convert_path(path_t path){
 
 int Huffman::decode(bool bit){
   if (!currentTree){
-    HTree::tree_ptr_t currentTree =  Huffman::make_tree();
+    currentTree = make_tree();
   }
   /*
   HTree::tree_ptr_t currnode = huff_tree;  //start the current node at the beginning of the tree
