@@ -37,3 +37,12 @@
     - if the result of decoding is negative, a leaf has not been found and nothing is done
     - if the result of decoding is positive, a leaf has been found and the result is written to the output file
 - Once all bytes that are not EOF have been read, both files are closed
+
+###### Compression tests
+| File Name               | Size before compression | Compressed file size in bytes | Decompressed file matches raw file exactly |
+| ----------------------- | ----------------------- | ----------------------------- | ------------------------------------------ |
+| asciiart.txt            | 337                     | 111                           |                                            |
+| htreesourcecode.txt     | 660                     | 437                           |                                            |
+| loremipsum.txt          | 6124                    | 3311                          |                                            |
+| alluniquecharacters.txt | 77                      | 77                            |                                            |
+| makefilesourcecode.txt  | 834                     | 588                           |                                            |
