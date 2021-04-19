@@ -24,18 +24,12 @@ int main(int argc, char **argv){//take in number of command line arguments, and 
 		Huffman::bits_t symbol;
 		char singlecharacter;
 		Infile.get(singlecharacter);
-		std::cout << singlecharacter << "\n";
 
 	    symbol = huff.encode(int(singlecharacter));
 	    for (bool bit : symbol){
 	    	bitout.output_bit(bit);
 		}
 
-	}
-	// Add the EOF at the end
-	Huffman::bits_t endFile = huff.encode(257);
-	for (bool bit : endFile){
-		bitout.output_bit(bit);
 	}
 	Infile.close(); //close the infile
 	Outfile.close(); //close the outfile
