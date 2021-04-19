@@ -31,16 +31,18 @@
 - once all bytes that are not EOF have been read, both files are closed
 - This also checks that both files open and that the input file does not start empty
   - If the input file is empty, it simply closes both files and ends
+- It also appends .comp to the filename to create the new file
 
 ###### Decoder
 
-- Decoder opens both files and reads byte by byte until it reaches the end of the file
-  - using bitio, it reads each bit and then uses huffman to decode that bit
+- Decoder opens both files and reads byte by byte with bitio until it reaches the end of the file
+  - It then iterates through every bit of the byte and uses huffman to decode that bit
     - if the result of decoding is negative, a leaf has not been found and nothing is done
     - if the result of decoding is positive, a leaf has been found and the result is written to the output file
 - Once all bytes that are not EOF have been read, both files are closed
 - This also checks that both files open and that the input file does not start empty
   - If the input file is empty, it simply closes both files and ends
+- .plaintext is appended to the new filename.
 
 ###### Compression tests
 | File Name               | Size before compression | Compressed file size in bytes | Decompressed file matches raw file exactly |
