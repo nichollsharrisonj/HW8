@@ -3,9 +3,10 @@
 #include "huffman.hh"
 #include "bitio.hh"
 
+
 int main(int argc, char **argv){//take in number of command line arguments, and the arguments
 
-	assert(argc == 2); //make sure there are two command line arguments
+	assert(argc == 2); //make sure there are two command line arguments	
 
 	Huffman huff;
 	std::string filename; 
@@ -16,9 +17,23 @@ int main(int argc, char **argv){//take in number of command line arguments, and 
 	std::ofstream Outfile(filename); //open an outfile
 	Outfile<< "test";
 
-	// while (true) {
-	//     // symbol = huff.encode(bitio.input_bit());
-	// }
+
+	BitIO bitin(nullptr, &Infile);
+	BitIO bitoout(&Outfile,nullptr);
+	while (!Infile.eof()) {
+
+		Huffman::bits_t symbol;
+		char singlecharacter;
+		Infile.get(singlecharacter);
+		std::cout << singlecharacter;
+
+	    if (int(singlecharacter) == 0){
+	    	break;
+	    }
+	    symbol = huff.encode(singlecharacter);
+
+
+	}
 
 	Infile.close(); //close the infile
 	Outfile.close(); //close the outfile
