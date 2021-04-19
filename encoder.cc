@@ -33,10 +33,10 @@ int main(int argc, char **argv){//take in number of command line arguments, and 
 
 	}
 	//Add the EOF at the end
-	Huffman::bits_t EOF = huff.encode(257);
-	for (bool bit : EOF){
-		bitout.output_bit(bit);
-	}
+	// Huffman::bits_t EOF = huff.encode(257);
+	// for (bool bit : EOF){
+	// 	bitout.output_bit(bit);
+	// }
 	Infile.close(); //close the infile
 	Outfile.close(); //close the outfile
 
