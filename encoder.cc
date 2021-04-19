@@ -26,9 +26,6 @@ int main(int argc, char **argv){//take in number of command line arguments, and 
 		Infile.get(singlecharacter);
 		std::cout << singlecharacter << "\n";
 
-	    // if (int(singlecharacter) == 0){
-	    // 	break;
-	    // }
 	    symbol = huff.encode(int(singlecharacter));
 	    for (bool bit : symbol){
 	    	bitout.output_bit(bit);

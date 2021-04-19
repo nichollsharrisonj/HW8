@@ -4,7 +4,9 @@
 #include "bitio.hh"
 
 int main(int argc, char **argv){//take in number of command line arguments, and arguments
-	assert(argc == 2)
+	
+	assert(argc == 2) //make sure there are two command line arguments
+
 	std::string filename; 
 	filename = argv[1]; //initialize and set filename to the name of the infile
 	std::ifstream Infile(filename); //open ifstream of infile
