@@ -10,6 +10,9 @@ int main(int argc, char **argv){//take in number of command line arguments, and 
 	std::string filename; 
 	filename = argv[1]; //initialize and set filename to the name of the infile
 	std::ifstream Infile(filename); //open ifstream of infile
+
+	// int symbol = -1;
+
 	while (true) {
 	  while (symbol < 0) {
 	    symbol = huff.decode(bitio.input_bit());
