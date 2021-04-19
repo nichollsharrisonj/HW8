@@ -8,11 +8,7 @@ Huffman::Huffman()
   {
 }
 
-/*
-Huffman::~Huffman(){
 
-}
-*/
 
 Huffman::bits_t Huffman::encode(int symbol){
   //make a forest, then make the tree
@@ -130,9 +126,3 @@ HTree::tree_ptr_t Huffman::make_tree() {
     }
     return huff_forest.get_index(0);
   }
-
-
-    //things to add to hforest: returns forest_vect[i]
-      //size function get_size()
-      //way to iterate through the forest
-      //function to delete the ith tree in the forest_vect

@@ -6,10 +6,10 @@
 
 int main(int argc, char **argv){//take in number of command line arguments, and the arguments
 
-	assert(argc == 2); //make sure there are two command line arguments	
+	assert(argc == 2); //make sure there are two command line arguments
 
 	Huffman huff;
-	std::string filename; 
+	std::string filename;
 	filename = argv[1]; //initialize and set filename to the name of the infile
 	std::ifstream Infile(filename);
 
@@ -29,14 +29,14 @@ int main(int argc, char **argv){//take in number of command line arguments, and 
 	    symbol = huff.encode(int(singlecharacter));
 	    for (bool bit : symbol){
 	    	bitout.output_bit(bit);
-		}	
+		}
 
 	}
-	//Add the EOF at the end
-	// Huffman::bits_t EOF = huff.encode(257);
-	// for (bool bit : EOF){
-	// 	bitout.output_bit(bit);
-	// }
+	// Add the EOF at the end
+	Huffman::bits_t endFile = huff.encode(257);
+	for (bool bit : endFile){
+		bitout.output_bit(bit);
+	}
 	Infile.close(); //close the infile
 	Outfile.close(); //close the outfile
 
