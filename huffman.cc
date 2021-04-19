@@ -4,7 +4,7 @@
 
 
 Huffman::Huffman()
-  : freq_table(ALPHABET_SIZE, 0), currentTree(nullptr)
+  : freq_table(ALPHABET_SIZE, 0), currentTree(make_tree())
   {
 }
 
@@ -38,36 +38,19 @@ Huffman::bits_t Huffman::convert_path(path_t path){
 
 
 int Huffman::decode(bool bit){
-  if (!currentTree){
-    currentTree = make_tree();
-  }
-  /*
-  HTree::tree_ptr_t currnode = huff_tree;  //start the current node at the beginning of the tree
-  if (bit){   //Expand currentpath list based on given bit
-    currentpath.push_back(HTree::Direction::RIGHT);
-  }
-  else {
-    currentpath.push_back(HTree::Direction::LEFT);
+
+  if (bit){       //shift tree according to the next bit, to be one of the children
+    currentTree = currentTree->get_child(HTree::Direction::RIGHT);
+  } else {
+    currentTree = currentTree->get_child(HTree::Direction::LEFT);
   }
 
-  for(int i=0; i < static_cast<int>(currentpath.size()); i++){
-    currnode = currnode->get_child(currentpath[i]);
-    }
-
-  if (currnode->get_value() >= 0) {//We have reached a leaf
-    currentpath.erase(currentpath.begin(), currentpath.end());
-		freq_table[currnode->get_key()] = freq_table[currnode->get_key()] + 1;
-    return currnode->get_value();
-  }
-  else {
-    return -1; //Have not found the character yet
-  }
-  */
   bit = 0;
-  if (currentTree->get_value() >= 0) {//We have reached a leaf
-		freq_table[currentTree->get_key()] = freq_table[currentTree->get_key()] + 1;
-    int val = currentTree->get_value();
-    currentTree = nullptr;
+
+  if (currentTree->get_key() >= 0) {//We have reached a leaf
+    int val = currentTree->get_key();
+    freq_table[currentTree->get_key()]++;
+    currentTree = make_tree();
     return val;
   }
   else {
