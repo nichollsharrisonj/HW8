@@ -47,22 +47,3 @@ bool BitIO::input_bit(){
   }
   return bit;
 }
-
-
-/*
-HOMEWORK TIPS:
-- Reading/writing a single character:
-    - get()/put()
-- Binary mode: iOS::binary
-- Command-line arguments: argc/argv
-- Standard streams:
-    - Cin cout cerr
-- Formatted I/O
-    - Can google these and figure out precise uses if you want
-- BITIO either takes an input string or an output stream
-    - output_bit
-        - Feed one bit at a time, until reaches 8 bits and then prints the byte
-        - RAII
-            - If someone doesn’t give you 8 bits, need to format it so it will still print
-    - input_bit
-*/
