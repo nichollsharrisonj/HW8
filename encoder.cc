@@ -15,23 +15,24 @@ int main(int argc, char **argv){//take in number of command line arguments, and 
 
 	filename.append(".comp"); //change the filename to have the appropriate extension
 	std::ofstream Outfile(filename); //open an outfile
-	Outfile<< "test";
 
 
 	BitIO bitin(nullptr, &Infile);
-	BitIO bitoout(&Outfile,nullptr);
+	BitIO bitout(&Outfile,nullptr);
 	while (!Infile.eof()) {
 
 		Huffman::bits_t symbol;
 		char singlecharacter;
 		Infile.get(singlecharacter);
-		std::cout << singlecharacter;
+		std::cout << singlecharacter << "\n";
 
-	    if (int(singlecharacter) == 0){
-	    	break;
-	    }
+	    // if (int(singlecharacter) == 0){
+	    // 	break;
+	    // }
 	    symbol = huff.encode(singlecharacter);
-
+	    for (bool bit : symbol){
+	    	bitout.output_bit(bit);
+		}	
 
 	}
 
