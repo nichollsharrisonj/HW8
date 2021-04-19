@@ -39,7 +39,7 @@ Huffman::bits_t Huffman::convert_path(path_t path){
 
 int Huffman::decode(bool bit){
 
-  if (bit){       //shift tree according to the next bit, to be one of the children
+  if (!bit){       //shift tree according to the next bit, to be one of the children
     currentTree = currentTree->get_child(HTree::Direction::RIGHT);
   } else {
     currentTree = currentTree->get_child(HTree::Direction::LEFT);
