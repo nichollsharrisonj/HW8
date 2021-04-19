@@ -29,6 +29,8 @@
 - Encoder opens both files and reads byte by byte until it reaches the end of the file
   - for each byte it reads, it encodes the symbol and then writes the encoded version to the Outfile
 - once all bytes that are not EOF have been read, both files are closed
+- This also checks that both files open and that the input file does not start empty
+  - If the input file is empty, it simply closes both files and ends
 
 ###### Decoder
 
@@ -37,6 +39,8 @@
     - if the result of decoding is negative, a leaf has not been found and nothing is done
     - if the result of decoding is positive, a leaf has been found and the result is written to the output file
 - Once all bytes that are not EOF have been read, both files are closed
+- This also checks that both files open and that the input file does not start empty
+  - If the input file is empty, it simply closes both files and ends
 
 ###### Compression tests
 | File Name               | Size before compression | Compressed file size in bytes | Decompressed file matches raw file exactly |
