@@ -24,7 +24,6 @@ int main(int argc, char **argv){//take in number of command line arguments, and 
 		Huffman::bits_t symbol;
 		char singlecharacter;
 		Infile.get(singlecharacter);
-		std::cout << singlecharacter << "\n";
 
 	    symbol = huff.encode(int(singlecharacter));
 	    for (bool bit : symbol){
