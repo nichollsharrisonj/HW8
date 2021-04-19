@@ -41,8 +41,8 @@
 ###### Compression tests
 | File Name               | Size before compression | Compressed file size in bytes | Decompressed file matches raw file exactly |
 | ----------------------- | ----------------------- | ----------------------------- | ------------------------------------------ |
-| asciiart.txt            | 337                     | 111                           |                                            |
-| htreesourcecode.txt     | 660                     | 437                           |                                            |
-| loremipsum.txt          | 6124                    | 3311                          |                                            |
-| alluniquecharacters.txt | 77                      | 77                            |                                            |
-| makefilesourcecode.txt  | 834                     | 588                           |                                            |
+| asciiart.txt            | 337                     | 111                           | y                                          |
+| htreesourcecode.txt     | 660                     | 437                           | y                                          |
+| loremipsum.txt          | 6124                    | 3311                          | y                                          |
+| alluniquecharacters.txt | 77                      | 77                            | y                                          |
+| makefilesourcecode.txt  | 834                     | 588                           | y                                          |
